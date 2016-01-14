@@ -7,13 +7,14 @@ public class StagesPanel : AnimatedPanel {
 
     [SerializeField]
     UILabel panelNameLabel;
-
+    [SerializeField]
+    UIScrollView scrollView;
 
     #region Panel
 
     protected override void PanelWillShow()
     {
-
+        scrollView.movement = UIScrollView.Movement.Vertical;
     }
     protected override void PanelDidShow()
     {

@@ -30,7 +30,7 @@ public class TitlePanel : AnimatedPanel {
 
 	#region function for Button
 	public void StartGame(){
-		GameGui.instance.PushPanel("GamePanel");
+		GameGui.instance.PushPanel("StagesPanel");
 	}
 	public void Setting(){
 		Debug.LogError ("Setting");

@@ -486,7 +486,7 @@ public class CsManager : MonoBehaviour {
 		int h = Screen.height;	
 		
 		
-		Texture2D img = Resources.Load("picture" + picNum) as Texture2D;	
+		Texture2D img = Resources.Load("Pictures/picture" + picNum) as Texture2D;	
 		GUI.DrawTexture(new Rect(5, h - 87, 60, 82), img);
 		
 	
