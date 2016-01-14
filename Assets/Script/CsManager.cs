@@ -58,8 +58,8 @@ public class CsManager : MonoBehaviour {
 	// Start
 	//-----------------------------
 	void Start () {
-
-	}
+        StartCoroutine("StageClear");
+    }
 
     //-----------------------------
     // Update
@@ -373,9 +373,13 @@ public class CsManager : MonoBehaviour {
 			
 		
 		moveCount = 0;				
-		stageTime = 0;				
-		
-		state = STATE.START;
+		stageTime = 0;
+        int value = Game.currentStageValue + 1;
+        PlayerPrefs.SetInt(Game.currentStage, value);
+        Debug.LogError(Game.currentStage);
+        Debug.LogError(value);
+        state = STATE.START;
+       
 	}
 	
 	//-----------------------------
