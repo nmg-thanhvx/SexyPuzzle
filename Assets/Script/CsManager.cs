@@ -105,7 +105,7 @@ public class CsManager : MonoBehaviour {
 		}	
 	
 		
-		Texture2D img = Resources.Load("picture" + picNum) as Texture2D;	
+		Texture2D img = Resources.Load("Pictures/picture" + picNum) as Texture2D;	
 	
 		for (int i = 0; i < countX * countZ; i++) {
 			int col = i % countX;				
