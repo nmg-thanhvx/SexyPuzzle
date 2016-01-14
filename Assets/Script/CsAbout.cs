@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CsAbout : MonoBehaviour {
 
@@ -35,7 +36,7 @@ public class CsAbout : MonoBehaviour {
 		
 		// Go back
 		if (GUI.Button(new Rect(w - 45, h + 120, 90, 35), "Go back")) {
-			Application.LoadLevel("GameTitle");
-		}	
+            SceneManager.LoadScene("GameTitle");
+        }	
 	}
 }

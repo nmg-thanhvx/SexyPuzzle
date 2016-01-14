@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CsOptions : MonoBehaviour {
 
@@ -48,22 +49,20 @@ public class CsOptions : MonoBehaviour {
 		gridNum = GUI.SelectionGrid(new Rect(w - 60, h - 30, 170, 90), gridNum, imgSize, 3);
 		CsManager.stageNum = gridNum + 1;
 		
-		// 사진 선택
+	
 		isPicture = GUI.Button(new Rect(w - 70, h + 75, 140, 35), "Select Picture"); 
 		
 		// Go back
 		if (GUI.Button(new Rect(w - 45, h + 120, 90, 35), "Go back")) {
-			Application.LoadLevel("GameTitle");
-		}	
+            SceneManager.LoadScene("GameTitle");
+        }	
 	}
 	
-	//-----------------------------
-	// 사진 선택
-	//-----------------------------
+
 	void SelectPicture() {
 		
-		int mx = 90;		// 좌우 마진 
-		int my = 30;		// 상하 마진 
+		int mx = 90;		
+		int my = 30;		
 		
 		Rect winRect = new Rect(mx, my, Screen.width - mx * 2, Screen.height - my * 1.5f);
 	
@@ -73,8 +72,8 @@ public class CsOptions : MonoBehaviour {
 		GUI.Window(1, winRect, WindowFunc, "Select Picture");
 		
 		scrollPosition = GUI.BeginScrollView(scrollRect, scrollPosition, scrollArea, false, false);
-		float pw = Screen.width / 4.5f;	// 사진의 가로 크기 
-		float ph = pw * 7 / 5;			// 사진의 세로 크기 
+		float pw = Screen.width / 4.5f;	
+		float ph = pw * 7 / 5;			
 	
 		for (int i = 0; i < CsManager.picCount; i++) {
 			Texture2D img = Resources.Load("picture" + (i + 1)) as Texture2D;	
@@ -91,9 +90,8 @@ public class CsOptions : MonoBehaviour {
 	}
 	
 	//-----------------------------
-	// GUI Window 처리 함수
+	// GUI Window 
 	//-----------------------------
 	void WindowFunc(int winID) {
-		// nothing
 	}	
 }

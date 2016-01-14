@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CsGameTitle : MonoBehaviour {
 
@@ -32,18 +33,18 @@ public class CsGameTitle : MonoBehaviour {
 		switch (menuNum) {
 			case 1 :	// New Game
 				CsManager.state = CsManager.STATE.START;
-				Application.LoadLevel("GameMain");
-				break;
+                SceneManager.LoadScene("GameMain");
+                break;
 			case 2 :	// Load Game
-				Application.LoadLevel("GameMain");
-				CsManager.state = CsManager.STATE.LOAD;
+                SceneManager.LoadScene("GameMain");
+                CsManager.state = CsManager.STATE.LOAD;
 				break;
 			case 3 :	// Options
-				Application.LoadLevel("GameOptions");
-				break;
+                SceneManager.LoadScene("GameOptions");
+                break;
 			case 4 :	// About
-				Application.LoadLevel("GameAbout");
-				break;
+                SceneManager.LoadScene("GameAbout");
+                break;
 			case 5 :	// Quit
 				Application.Quit();
 				break;
