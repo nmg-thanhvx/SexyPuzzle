@@ -4,11 +4,10 @@ using System.Collections;
 public class Stages : MonoBehaviour {
 
     public string stageName;
-    private int currentValue;
     // Use this for initialization
     void Start()
     {
-        currentValue = PlayerPrefs.GetInt(stageName);
+        
     }
 
     // Update is called once per frame
@@ -18,10 +17,8 @@ public class Stages : MonoBehaviour {
     }
     void OnClick()
     {
-        Game.currentStage = stageName;
-        Game.currentStageValue = currentValue;
-        GameGui.instance.PushPanel("StagePanel");
-        Debug.LogError(stageName);
-        Debug.LogError(currentValue.ToString());
+
+        CsManager.picture = stageName;
+        GameGui.instance.PushPanel("StagePanel");    
     }
 }

@@ -74,7 +74,7 @@ public class CsOptions : MonoBehaviour {
 		scrollPosition = GUI.BeginScrollView(scrollRect, scrollPosition, scrollArea, false, false);
 		float pw = Screen.width / 4.5f;	
 		float ph = pw * 7 / 5;			
-	
+	/*
 		for (int i = 0; i < CsManager.picCount; i++) {
 			Texture2D img = Resources.Load("picture" + (i + 1)) as Texture2D;	
 			int x = i % 3;
@@ -85,7 +85,7 @@ public class CsOptions : MonoBehaviour {
 				isPicture = false;
 			}	
 		}		
-		
+		*/
 		GUI.EndScrollView();	
 	}
 	

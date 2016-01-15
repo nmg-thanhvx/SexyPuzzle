@@ -8,7 +8,11 @@ public class Stage : MonoBehaviour {
     public int picNum;
 	// Use this for initialization
 	void Start () {
-	    currentValue = PlayerPrefs.GetInt(Game.currentStage);
+	    currentValue = PlayerPrefs.GetInt(CsManager.picture);
+        if (picNum >= currentValue) {
+            string message = CsManager.picture + picNum + "is Unlock";
+            Debug.LogError(message);
+        }
     }
 	
 	// Update is called once per frame
@@ -16,8 +20,8 @@ public class Stage : MonoBehaviour {
 	
 	}
     void OnClick()
-    {
-        CsManager.picNum = picNum;
+    {       
+        CsManager.stageNum = picNum;
         GameGui.instance.PushPanel("GamePanel");
     }
 }

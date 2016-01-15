@@ -27,13 +27,14 @@ public class CsManager : MonoBehaviour {
 	static public float sizeZ;
 
 	
-	static public bool isSound = true; 
+	static public bool isSound = true;
+    static public string picture;
 	static public int stageNum = 1;		
 	float stageTime = 0;				
 	int moveCount = 0;					
 
 	
-	static public int picNum = 1;		
+	//static public int picNum = 1;		
 	static public int picCount = 6;		 
 
 	public enum STATE { START, CLEAR, SAVE, LOAD, CLICK, IDLE, WAIT };
@@ -104,8 +105,8 @@ public class CsManager : MonoBehaviour {
 			stageTime = Time.time;			
 		}
 
-        string picture = "Pictures/" + Game.currentStage + picNum;
-        Texture2D img = Resources.Load(picture) as Texture2D;	
+        string picturea = "Pictures/" + picture + stageNum;
+        Texture2D img = Resources.Load(picturea) as Texture2D;	
 	
 		for (int i = 0; i < countX * countZ; i++) {
 			int col = i % countX;				
@@ -367,17 +368,14 @@ public class CsManager : MonoBehaviour {
 		if (stageNum > picCount + 1)
 			stageNum = 1;
 			
-		picNum++;
+		/*picNum++;
 		if (picNum > picCount)
-			picNum = 1;	
+			picNum = 1;	*/
 			
 		
 		moveCount = 0;				
-		stageTime = 0;
-        int value = Game.currentStageValue + 1;
-        PlayerPrefs.SetInt(Game.currentStage, value);
-        Debug.LogError(Game.currentStage);
-        Debug.LogError(value);
+		stageTime = 0;       
+        PlayerPrefs.SetInt(picture, stageNum);
         state = STATE.START;
        
 	}
@@ -409,7 +407,7 @@ public class CsManager : MonoBehaviour {
 			stream.WriteLine(stageNum);					
 			stream.WriteLine(nTime); 					
 			stream.WriteLine(moveCount);			
-			stream.WriteLine(picNum);					
+			stream.WriteLine(picture);					
 	
 			
 			for (int i = 0; i < countX * countZ; i++) {
@@ -449,7 +447,7 @@ public class CsManager : MonoBehaviour {
 			stageNum = int.Parse(stream.ReadLine());
 			stageTime = Time.time - int.Parse(stream.ReadLine());
 			moveCount = int.Parse(stream.ReadLine());	
-			picNum = int.Parse(stream.ReadLine());		
+			picture = stream.ReadLine().ToString();		
 			
 			DeleteTiles();		
 			
@@ -489,8 +487,8 @@ public class CsManager : MonoBehaviour {
 		int w = Screen.width;		
 		int h = Screen.height;
 
-        string picture = "Pictures/" + Game.currentStage + picNum;
-        Texture2D img = Resources.Load(picture) as Texture2D;	
+        string picturea = "Pictures/" + picture + stageNum;
+        Texture2D img = Resources.Load(picturea) as Texture2D;	
 		GUI.DrawTexture(new Rect(5, h - 87, 60, 82), img);
 		
 	
