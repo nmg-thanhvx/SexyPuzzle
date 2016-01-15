@@ -5,12 +5,16 @@ public class Stage : MonoBehaviour {
 
   
     private int currentValue;
-    public int picNum;
-	// Use this for initialization
-	void Start () {
-	    currentValue = PlayerPrefs.GetInt(CsManager.picture);
-        if (picNum >= currentValue) {
-            string message = CsManager.picture + picNum + "is Unlock";
+    public int stageNum;
+    // Use this for initialization
+
+    void OnEnable() {
+        string a = "Pictures/" + CsManager.picture + "/" + CsManager.picture + stageNum;
+        this.gameObject.GetComponent<UITexture>().mainTexture = Resources.Load(a) as Texture;// "Tsunade" + picNum;
+        currentValue = PlayerPrefs.GetInt(CsManager.picture);
+        if (stageNum >= currentValue)
+        {
+            string message = CsManager.picture + stageNum + "is Unlock";
             Debug.LogError(message);
         }
     }
@@ -21,7 +25,7 @@ public class Stage : MonoBehaviour {
 	}
     void OnClick()
     {       
-        CsManager.stageNum = picNum;
+        CsManager.stageNum = stageNum;
         GameGui.instance.PushPanel("GamePanel");
     }
 }

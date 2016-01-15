@@ -105,7 +105,7 @@ public class CsManager : MonoBehaviour {
 			stageTime = Time.time;			
 		}
 
-        string picturea = "Pictures/" + picture + stageNum;
+        string picturea = "Pictures/" + picture + "/" + picture + stageNum;
         Texture2D img = Resources.Load(picturea) as Texture2D;	
 	
 		for (int i = 0; i < countX * countZ; i++) {
@@ -487,9 +487,9 @@ public class CsManager : MonoBehaviour {
 		int w = Screen.width;		
 		int h = Screen.height;
 
-        string picturea = "Pictures/" + picture + stageNum;
+        string picturea =  "Pictures/" + picture + "/" + picture + stageNum;
         Texture2D img = Resources.Load(picturea) as Texture2D;	
-		GUI.DrawTexture(new Rect(5, h - 87, 60, 82), img);
+		GUI.DrawTexture(new Rect(8, h - 115, 90, 110), img);
 		
 	
 		int sec = (int) (Time.time - stageTime);
