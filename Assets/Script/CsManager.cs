@@ -58,7 +58,7 @@ public class CsManager : MonoBehaviour {
 	// Start
 	//-----------------------------
 	void Start () {
-        StartCoroutine("StageClear");
+     //   StartCoroutine("StageClear");
     }
 
     //-----------------------------
@@ -102,10 +102,10 @@ public class CsManager : MonoBehaviour {
 		if (state == STATE.START) {
 			ShuffleTile();				
 			stageTime = Time.time;			
-		}	
-	
-		
-		Texture2D img = Resources.Load("Pictures/picture" + picNum) as Texture2D;	
+		}
+
+        string picture = "Pictures/" + Game.currentStage + picNum;
+        Texture2D img = Resources.Load(picture) as Texture2D;	
 	
 		for (int i = 0; i < countX * countZ; i++) {
 			int col = i % countX;				
@@ -487,10 +487,10 @@ public class CsManager : MonoBehaviour {
 		GUI.skin = skin;
 	
 		int w = Screen.width;		
-		int h = Screen.height;	
-		
-		
-		Texture2D img = Resources.Load("Pictures/picture" + picNum) as Texture2D;	
+		int h = Screen.height;
+
+        string picture = "Pictures/" + Game.currentStage + picNum;
+        Texture2D img = Resources.Load(picture) as Texture2D;	
 		GUI.DrawTexture(new Rect(5, h - 87, 60, 82), img);
 		
 	

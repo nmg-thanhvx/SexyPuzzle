@@ -10,7 +10,7 @@ public class GamePanel : AnimatedPanel {
 			return _instance;
 		}
 	}
-
+    public GameObject GamePlayPrefab;
 
 	// Use this for initialization
 	void Awake () {
@@ -27,8 +27,8 @@ public class GamePanel : AnimatedPanel {
 
 	protected override void PanelWillShow ()
 	{
-
-	}
+        GamePlayPrefab.SetActive(true);
+    }
 	protected override void PanelDidShow ()
 	{
 		
